@@ -1,4 +1,4 @@
-# Test 1
+# Telephone Game
 
 _This project was generated with [create-empirica-app](https://github.com/empiricaly/create-empirica-app)._
 
