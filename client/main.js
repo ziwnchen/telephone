@@ -1,6 +1,7 @@
 import Empirica from "meteor/empirica:core";
 import { render } from "react-dom";
 import ExitSurvey from "./exit/ExitSurvey";
+import ExitSurvey2 from "./exit/ExitSurvey2";
 import Thanks from "./exit/Thanks";
 import About from "./game/About";
 import Round from "./game/Round";
@@ -45,7 +46,7 @@ Empirica.round(Round);
 // If you don't return anything, or do not define this function, a default
 // exit screen will be shown.
 Empirica.exitSteps((game, player) => {
-  return [Thanks];
+  return [ExitSurvey, ExitSurvey2, Thanks];
 });
 
 // Start the app render tree.

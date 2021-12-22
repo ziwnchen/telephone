@@ -41,8 +41,8 @@ export default class TaskResponse extends React.Component {
       <textarea
         id='response'
         name='response'
-        rows="4"
-        cols="50"
+        rows="10"
+        cols="100"
         value={value}
         onChange={this.handleChange}
         onCut={this.handleCopy}
@@ -76,6 +76,10 @@ export default class TaskResponse extends React.Component {
           {this.renderInput()}
           <button type="submit">Submit</button>
         </form>
+      </div>);
+    } else if (stage.name == 'instruction'){
+      return (<div className="task-response">
+        <button onClick={this.handleSubmit}>Next</button>
       </div>);
     } else {
       return this.renderWait();

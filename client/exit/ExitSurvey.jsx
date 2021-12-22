@@ -17,7 +17,7 @@ const Radio = ({ selected, name, value, label, onChange }) => (
 
 export default class ExitSurvey extends React.Component {
   static stepName = "ExitSurvey";
-  state = { age: "", gender: "", strength: "", fair: "", feedback: "" };
+  state = { age:"", gender:"", education:"", location:"", income:""};
 
   handleChange = event => {
     const el = event.currentTarget;
@@ -31,23 +31,14 @@ export default class ExitSurvey extends React.Component {
 
   render() {
     const { player } = this.props;
-    const { age, gender, strength, fair, feedback, education } = this.state;
+    const { age, gender, education, location, income } = this.state;
 
     return (
       <Centered>
         <div className="exit-survey">
-          <h1> Exit Survey </h1>
+          <h1> Exit Survey (Part 1) </h1>
           <p>
-            Please submit the following code to receive your bonus:{" "}
-            <strong>{player._id}</strong>.
-          </p>
-          <p>
-            You final <strong>bonus</strong> is in addition of the{" "}
-            <strong>1 base reward</strong> for completing the HIT.
-          </p>
-          <br />
-          <p>
-            Please answer the following short survey. You do not have to provide
+            Please answer the following questions. You do not have to provide
             any information you feel uncomfortable with.
           </p>
           <form onSubmit={this.handleSubmit}>
@@ -85,7 +76,7 @@ export default class ExitSurvey extends React.Component {
             </div>
 
             <div>
-              <label>Highest Education Qualification</label>
+              <label>What is your highest education qualification?</label>
               <div>
                 <Radio
                   selected={education}
@@ -118,46 +109,127 @@ export default class ExitSurvey extends React.Component {
               </div>
             </div>
 
-            <div className="form-line thirds">
+            <div>
+              <label>What is your home location?</label>
               <div>
-                <label htmlFor="strength">
-                  How would you describe your strength in the game?
-                </label>
-                <div>
-                  <textarea
-                    dir="auto"
-                    id="strength"
-                    name="strength"
-                    value={strength}
-                    onChange={this.handleChange}
-                  />
-                </div>
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="north_america"
+                  label="North America"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="south_america"
+                  label="South America"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="europe"
+                  label="Europe"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="africa"
+                  label="Africa"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="asia"
+                  label="Asia"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="australia"
+                  label="Australia"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="caribbean"
+                  label="Caribbean Islands"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="pacific"
+                  label="Pacific Islands"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="other"
+                  label="Other"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={location}
+                  name="location"
+                  value="no"
+                  label="Prefer not to say"
+                  onChange={this.handleChange}
+                />
               </div>
+            </div>
+
+            <div>
+              <label>What is your income level?</label>
               <div>
-                <label htmlFor="fair">Do you feel the pay was fair?</label>
-                <div>
-                  <textarea
-                    dir="auto"
-                    id="fair"
-                    name="fair"
-                    value={fair}
-                    onChange={this.handleChange}
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="feedback">
-                  Feedback, including problems you encountered.
-                </label>
-                <div>
-                  <textarea
-                    dir="auto"
-                    id="feedback"
-                    name="feedback"
-                    value={feedback}
-                    onChange={this.handleChange}
-                  />
-                </div>
+                <Radio
+                  selected={income}
+                  name="income"
+                  value="_10"
+                  label="Below $10k"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={income}
+                  name="income"
+                  value="10_50"
+                  label="$10k to $50k"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={income}
+                  name="income"
+                  value="50_100"
+                  label="$50k to $100k"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={income}
+                  name="income"
+                  value="100_150"
+                  label="$100k to $150k"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={income}
+                  name="income"
+                  value="150_"
+                  label="Over $150k"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={income}
+                  name="income"
+                  value="no"
+                  label="Prefer not to say"
+                  onChange={this.handleChange}
+                />
               </div>
             </div>
 

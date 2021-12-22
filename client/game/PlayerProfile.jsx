@@ -1,5 +1,4 @@
 import React from "react";
-
 import Timer from "./Timer.jsx";
 
 export default class PlayerProfile extends React.Component {
@@ -11,12 +10,25 @@ export default class PlayerProfile extends React.Component {
     </div>);
   }
 
+  // renderProgress() {
+  //   const {round} = this.props;
+  //   return (<div className="profile-progress">
+  //     <h3>Your Progress</h3>
+  //     <strong>{round._index}</strong>.
+  //   </div>);
+  // }
+
   render() {
     const {stage} = this.props;
-
-    return (<aside className="player-profile">
-      {this.renderProfile()}
-      <Timer stage={stage}/>
-    </aside>);
+    if (stage.name=='read' || stage.name=='wait'){
+      return (<aside className="player-profile">
+        {this.renderProfile()}
+        <Timer stage={stage}/>
+      </aside>);
+    } else{
+      return (<aside className="player-profile">
+        {this.renderProfile()}
+      </aside>);
+    }
   }
 }
