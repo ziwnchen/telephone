@@ -3,7 +3,7 @@ import React from "react";
 import { Centered } from "meteor/empirica:core";
 
 export default class Quiz extends React.Component {
-  state = { sum: "", horse: "" };
+  state = { task_num: "", task_type: "" };
 
   handleChange = event => {
     const el = event.currentTarget;
@@ -13,7 +13,7 @@ export default class Quiz extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    if (this.state.sum !== "4" || this.state.horse !== "white") {
+    if (this.state.task_num !== "2" || this.state.task_type !== "recall") {
       alert("Incorrect! Read the instructions, and please try again.");
     } else {
       this.props.onNext();
@@ -22,43 +22,51 @@ export default class Quiz extends React.Component {
 
   render() {
     const { hasPrev, hasNext, onNext, onPrev } = this.props;
-    const { sum, horse } = this.state;
+    const { task_num, task_type } = this.state;
     return (
       <Centered>
         <div className="quiz">
           <h1> Pre-task Quiz </h1>
           <form onSubmit={this.handleSubmit}>
-            <p>
-              <label htmlFor="sum">What is 2+2?</label>
+            <div class="quiz_question">
+              <label htmlFor="task_num">How many tasks are you going to complete?</label>
+              <br/>
               <input
                 type="text"
                 dir="auto"
-                id="sum"
-                name="sum"
+                id="task_num"
+                name="task_num"
                 placeholder="e.g. 3"
-                value={sum}
+                value={task_num}
                 onChange={this.handleChange}
                 autoComplete="off"
                 required
               />
-            </p>
-            <p>
-              <label htmlFor="horse">
-                What color was Napoleon's white horse?
+          </div>
+          <div class="quiz_question">
+              <label>
+                What are you going to do for the first task?
               </label>
+              <br/>
               <input
-                type="text"
-                dir="auto"
-                id="horse"
-                name="horse"
-                placeholder="e.g. brown"
-                value={horse}
+                type="radio"
+                id="recall"
+                name="task_type"
+                value="recall"
                 onChange={this.handleChange}
-                autoComplete="off"
-                required
-              />
-            </p>
+              />Rewrite given sentences
 
+              <br/>
+              <input
+                type="radio"
+                id="write"
+                name="task_type"
+                value="write"
+                onChange={this.handleChange}
+              />Write the next sentence of give sentences
+          </div>
+
+          <br/>
             <p>
               <button type="button" onClick={onPrev} disabled={!hasPrev}>
                 Back to instructions

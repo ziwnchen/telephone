@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Centered } from "meteor/empirica:core";
 
 const Radio = ({ selected, name, value, label, onChange }) => (
@@ -17,7 +16,8 @@ const Radio = ({ selected, name, value, label, onChange }) => (
 
 export default class ExitSurvey extends React.Component {
   static stepName = "ExitSurvey";
-  state = { age:"", gender:"", education:"", location:"", income:""};
+  state = { age:"", gender:"", education:"", location:"AL",
+    native_english:"", "years_english":"", income:""};
 
   handleChange = event => {
     const el = event.currentTarget;
@@ -31,7 +31,7 @@ export default class ExitSurvey extends React.Component {
 
   render() {
     const { player } = this.props;
-    const { age, gender, education, location, income } = this.state;
+    const { age, gender, education, location, income, native_english, years_english} = this.state;
 
     return (
       <Centered>
@@ -43,7 +43,7 @@ export default class ExitSurvey extends React.Component {
           </p>
           <form onSubmit={this.handleSubmit}>
             <div className="form-line">
-              <div>
+              <div class="survey_question">
                 <label htmlFor="age">Age</label>
                 <div>
                   <input
@@ -59,7 +59,7 @@ export default class ExitSurvey extends React.Component {
                   />
                 </div>
               </div>
-              <div>
+              <div class="survey_question">
                 <label htmlFor="gender">Gender</label>
                 <div>
                   <input
@@ -73,9 +73,7 @@ export default class ExitSurvey extends React.Component {
                   />
                 </div>
               </div>
-            </div>
-
-            <div>
+            <div class="survey_question">
               <label>What is your highest education qualification?</label>
               <div>
                 <Radio
@@ -99,93 +97,105 @@ export default class ExitSurvey extends React.Component {
                   label="Master's or higher"
                   onChange={this.handleChange}
                 />
-                <Radio
-                  selected={education}
-                  name="education"
-                  value="other"
-                  label="Other"
-                  onChange={this.handleChange}
-                />
               </div>
             </div>
 
-            <div>
-              <label>What is your home location?</label>
+            <div class="survey_question">
+              <label>What state do you live in?</label>
+                <select name="location" value={this.state.value} onChange={this.handleChange}>
+              	<option value="AL">Alabama</option>
+              	<option value="AK">Alaska</option>
+              	<option value="AZ">Arizona</option>
+              	<option value="AR">Arkansas</option>
+              	<option value="CA">California</option>
+              	<option value="CO">Colorado</option>
+              	<option value="CT">Connecticut</option>
+              	<option value="DE">Delaware</option>
+              	<option value="DC">District Of Columbia</option>
+              	<option value="FL">Florida</option>
+              	<option value="GA">Georgia</option>
+              	<option value="HI">Hawaii</option>
+              	<option value="ID">Idaho</option>
+              	<option value="IL">Illinois</option>
+              	<option value="IN">Indiana</option>
+              	<option value="IA">Iowa</option>
+              	<option value="KS">Kansas</option>
+              	<option value="KY">Kentucky</option>
+              	<option value="LA">Louisiana</option>
+              	<option value="ME">Maine</option>
+              	<option value="MD">Maryland</option>
+              	<option value="MA">Massachusetts</option>
+              	<option value="MI">Michigan</option>
+              	<option value="MN">Minnesota</option>
+              	<option value="MS">Mississippi</option>
+              	<option value="MO">Missouri</option>
+              	<option value="MT">Montana</option>
+              	<option value="NE">Nebraska</option>
+              	<option value="NV">Nevada</option>
+              	<option value="NH">New Hampshire</option>
+              	<option value="NJ">New Jersey</option>
+              	<option value="NM">New Mexico</option>
+              	<option value="NY">New York</option>
+              	<option value="NC">North Carolina</option>
+              	<option value="ND">North Dakota</option>
+              	<option value="OH">Ohio</option>
+              	<option value="OK">Oklahoma</option>
+              	<option value="OR">Oregon</option>
+              	<option value="PA">Pennsylvania</option>
+              	<option value="RI">Rhode Island</option>
+              	<option value="SC">South Carolina</option>
+              	<option value="SD">South Dakota</option>
+              	<option value="TN">Tennessee</option>
+              	<option value="TX">Texas</option>
+              	<option value="UT">Utah</option>
+              	<option value="VT">Vermont</option>
+              	<option value="VA">Virginia</option>
+              	<option value="WA">Washington</option>
+              	<option value="WV">West Virginia</option>
+              	<option value="WI">Wisconsin</option>
+              	<option value="WY">Wyoming</option>
+              </select>
+            </div>
+
+            <div class="survey_question">
+              <label>Is English your native language?</label>
               <div>
                 <Radio
-                  selected={location}
-                  name="location"
-                  value="north_america"
-                  label="North America"
+                  selected={native_english}
+                  name="native_english"
+                  value="1"
+                  label="Yes"
                   onChange={this.handleChange}
                 />
                 <Radio
-                  selected={location}
-                  name="location"
-                  value="south_america"
-                  label="South America"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={location}
-                  name="location"
-                  value="europe"
-                  label="Europe"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={location}
-                  name="location"
-                  value="africa"
-                  label="Africa"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={location}
-                  name="location"
-                  value="asia"
-                  label="Asia"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={location}
-                  name="location"
-                  value="australia"
-                  label="Australia"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={location}
-                  name="location"
-                  value="caribbean"
-                  label="Caribbean Islands"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={location}
-                  name="location"
-                  value="pacific"
-                  label="Pacific Islands"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={location}
-                  name="location"
-                  value="other"
-                  label="Other"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={location}
-                  name="location"
-                  value="no"
-                  label="Prefer not to say"
+                  selected={native_english}
+                  name="native_english"
+                  value="0"
+                  label="No"
                   onChange={this.handleChange}
                 />
               </div>
             </div>
 
-            <div>
+            <div class="survey_question">
+              <label> <b>If English is NOT you native language, </b>
+              How many years have you been speaking English? (If not applied, leave this question blank.)</label>
+              <div>
+                <input
+                  id="years_english"
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.01"
+                  dir="auto"
+                  name="years_english"
+                  value={years_english}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+
+            <div class="survey_question">
               <label>What is your income level?</label>
               <div>
                 <Radio
@@ -232,6 +242,7 @@ export default class ExitSurvey extends React.Component {
                 />
               </div>
             </div>
+          </div>
 
             <button type="submit">Submit</button>
           </form>

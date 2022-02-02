@@ -1,3 +1,11 @@
+
+.consent{
+  p {
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
 .round {
   display: flex;
   flex-direction: column;
@@ -118,15 +126,32 @@ button {
 }
 
 .instructions,
-.quiz,
+.quiz {
+  input[type="radio"] {
+    margin: 0.5rem;
+  }
+  input[type="text"] {
+    margin-top: 1rem;
+  }
+  .quiz_question{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
 .exit-survey {
+  p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
   button {
     margin: 2rem 1rem 0 0;
   }
 
   label {
     display: block;
-    margin: 2rem 0 1rem;
+    margin: 10px 0 5px;
+    font-size: 20px;
   }
 
   input[type="text"],
@@ -146,9 +171,18 @@ button {
     border-radius: 0.3rem;
     border: 1px solid lightgray;
   }
+
+  select {
+    width: 200px;
+    height: 50px;
+  }
 }
 
 .exit-survey {
+  .survey_question{
+    margin-top: 20px;
+    margin-top: 20px;
+  }
   .form-line {
     display: flex;
     flex-direction: column;
@@ -195,4 +229,9 @@ button {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
+}
+
+fieldset.likertScale {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
 }
