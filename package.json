@@ -8,6 +8,7 @@
     "@babel/runtime": "^7.10.2",
     "@blueprintjs/core": "^3.52.0",
     "bcrypt": "^5.0.1",
+    "elliptic": "^6.5.4",
     "meteor-node-stubs": "0.4.1",
     "minimist": ">=0.2.1",
     "react": "16.5.2",
