@@ -27,7 +27,7 @@ export default class Consent extends React.Component {
           will have an opportunity to receive a complete explanation of the study
           following its completion. The study will consist of viewing information
           on a screen and then recalling this information in the following screens.
-          he study will also consist of adding parts to a story. This experimental
+          The study will also consist of adding parts to a story. This experimental
           session is expected to last 20 minutes.</p>
         <p>If you agree to be part of the research study, you will be asked to
           view information on a computer screen and then recall this information
@@ -92,7 +92,7 @@ export default class Consent extends React.Component {
         <br/>
         <b>
           <i>As evidence that you consent to participate in the experiment,
-            please choose "yes" from the drop down menu in the next question. </i>
+            please agree by clicking on the button below. </i>
         </b>
         <br/>
         <br/>

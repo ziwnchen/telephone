@@ -14,6 +14,9 @@ export default class ExitSurvey2 extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSubmit(this.state);
+    const { player } = this.props;
+    const redirect_path = `http://surveys.ovationworldpanel.com/survey/Complete?refid1=${player.id}&pid1=RCECFN94`
+    window.location.href=redirect_path;
   };
 
   render() {
@@ -39,34 +42,36 @@ export default class ExitSurvey2 extends React.Component {
       const likertOptions_first_certain = {
         question: "On the first task, how certain were you that the text you wrote was the text that you read in the question prompt?",
         responses: [
-          { value: 1, text: "Very Certain" },
-          { value: 2, text: "Certain" },
-          { value: 3, text: "Somewhat Certain"},
+          { value: 1, text: "Very Uncertain" },
+          { value: 2, text: "Uncertain" },
+          { value: 3, text: "Somewhat Uncertain"},
           { value: 4, text: "Neither Certain nor Uncertain" },
-          { value: 5, text: "Somewhat Uncertain" },
-          { value: 6, text: "Uncertain" },
-          { value: 7, text: "Very Uncertain" }
+          { value: 5, text: "Somewhat Certain" },
+          { value: 6, text: "Certain" },
+          { value: 7, text: "Very Certain" }
         ],
         onChange: val=>{
           this.setState({first_certain: val.value });
         }
     };
 
-    const likertOptions_first_meaning = {
-      question: "On the first task, how sure are you that your written text captured the meaning of the text that you read?",
-      responses: [
-        { value: 1, text: "Very Sure" },
-        { value: 2, text: "Sure" },
-        { value: 3, text: "Somewhat Sure"},
-        { value: 4, text: "Neither Sure nor Unsure" },
-        { value: 5, text: "Somewhat Unsure" },
-        { value: 6, text: "Unsure" },
-        { value: 7, text: "Very Unsure" }
-      ],
-      onChange: val=>{
-        this.setState({first_meaning: val.value });
-      }
-  };
+
+  const likertOptions_first_meaning = {
+    question: "On the first task, how sure are you that your written text captured the meaning of the text that you read?",
+    responses: [
+      { value: 1, text: "Very Unsure" },
+      { value: 2, text: "Unsure" },
+      { value: 3, text: "Somewhat Unsure"},
+      { value: 4, text: "Neither Sure nor Unsure" },
+      { value: 5, text: "Somewhat Sure" },
+      { value: 6, text: "Sure" },
+      { value: 7, text: "Very Sure" }
+    ],
+    onChange: val=>{
+      this.setState({first_meaning: val.value });
+    }
+};
+
 
   const likertOptions_second_close = {
     question: "On the second task, when you were adding your line to the stories, were you trying to follow the underlying idea in the story?",
@@ -103,7 +108,7 @@ const likertOptions_second_novelty = {
     return (
       <Centered>
         <div className="exit-survey">
-          <h1> Exit Survey (Part 2) </h1>
+          <h1> Concluding Survey (Part 2) </h1>
           <p>
             Please answer the following questions regarding your task experiences.
           </p>

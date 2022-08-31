@@ -18,15 +18,14 @@ export default class ExitTransition extends React.Component {
     return (
       <Centered>
         <div className="exit-survey">
-          <h1> Survey Instruction </h1>
+          <h1> Concluding Survey </h1>
           <p>
-          Congratulations! You have just finished all rounds of tasks!
+          Congratulations! You have now finished all the tasks in this study!
           </p>
           <p>
-          There is an end survey after the task. We would appreciate if you could
-          share with us some more information about you and your task experiences.
-          Please note that fail to complete the survey, especially the second part, will
-          likely influence your rewards.
+          We now need to collect some information about you and your experience with this study.
+          This survey is a required part of the study and needs to be completed to receive your remuneration.
+          We would appreciate if you could share with us some more information about you and your task experiences.
           </p>
           <form onSubmit={this.handleSubmit}>
             <div className="form-line">

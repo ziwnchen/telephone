@@ -54,7 +54,7 @@ export default class Quiz extends React.Component {
                 name="task_type"
                 value="recall"
                 onChange={this.handleChange}
-              />Rewrite given sentences
+              />Rewrite each of the sentences provided
 
               <br/>
               <input
@@ -63,7 +63,7 @@ export default class Quiz extends React.Component {
                 name="task_type"
                 value="write"
                 onChange={this.handleChange}
-              />Write the next sentence of give sentences
+              />Write the next sentence in the story to the sentence provided
           </div>
 
           <br/>

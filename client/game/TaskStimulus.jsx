@@ -12,15 +12,22 @@ export default class TaskStimulus extends React.Component {
     const promptSent = round.get('promptSent');
     const instructionSent = round.get('instrText')
 
+    const questionText_prepare_first = 'Press start when you are ready to begin.';
     const questionText_prepare = 'Press start when you are ready for the next sentence.';
     const questionText_read = '5 seconds to remember the sentence.';
-    const questionText_wait = '5 seconds with a blank screen.';
+    const questionText_wait = 'Pause to remember the sentence.';
     const questionText_response = 'Please type the sentence that you remember. Make sure to write a complete sentence that somebody else would understand when reading it.';
     const questionText_instruction_task23 = "Please write the next sentence of this story.";
     const question_pre_instruction = "Please read the following instruction. When you are ready to continue, press ‘Next’."
 
 
-    if (stage.name == 'prepare') {
+    if (stage.name == 'prepare_first') {
+      return (<div className="task-stimulus">
+        <div className="task-question">
+          <h2>{questionText_prepare_first}</h2>
+        </div>
+      </div>);
+    } else if (stage.name == 'prepare') {
       return (<div className="task-stimulus">
         <div className="task-question">
           <h2>{questionText_prepare}</h2>

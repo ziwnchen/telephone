@@ -17,16 +17,17 @@ export default class InstructionStepOne extends React.Component {
           </p>
           <p>
             For task 1, you will have five seconds to read a sentence.
-            After you read the sentence, there will be a 5-second pause
-            after which you will be asked to rewrite the same sentence
-            as you remember it. You will do this ten times.
+            After reading, there will be a 5-second pause after which you will be
+            asked to rewrite the sentence to the best of your ability. This is a
+            memory task; try to remember correctly, but paraphrase if necessary.
+            You will do this nine times.
           </p>
           <p>
             For task 2, you will read nine individual sentences that are
             part of different stories. Your task will be to write the next
-            sentence in each of these stories. You can write whatever you want,
-            as long as it follows from the previous sentence and as long as
-            you only write one sentence.
+            sentence in each of the stories. You may write whatever you want,
+            as long as it follows from the previous sentence. You write only one sentence,
+            and you try to sustain or increase the coherence and engagement of each independent story.
           </p>
           <p>
             You will be given the instructions seperately at the beginning of each

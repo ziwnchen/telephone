@@ -27,12 +27,16 @@ Empirica.onRoundEnd((game, round) => {
   const taskType = round.get('taskType');
   game.players.forEach(player => {
     const text_value = player.round.get("value");
+    const player_id =player.get("_id");
+    const finish_time = new Date().toString()
     Prompts.insert({
+      player: player_id,
       type: promptType,
       gen: genNum,
       linetype: lineType,
       taskType: taskType,
-      text: text_value
+      text: text_value,
+      Submit_time: finish_time
     });
   });
 });

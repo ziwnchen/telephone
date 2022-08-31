@@ -52,6 +52,25 @@ export default class TaskResponse extends React.Component {
     </div>);
   }
 
+  renderAdd() {
+    const {player} = this.props;
+    const value = player.round.get("value");
+    return (<div>
+      <label for="response">Your next sentence for the story</label>
+      <textarea
+        id='response'
+        name='response'
+        rows="10"
+        cols="100"
+        value={value}
+        onChange={this.handleChange}
+        onCut={this.handleCopy}
+        onCopy={this.handleCopy}
+        onPaste={this.handleCopy}
+        required></textarea>
+    </div>);
+  }
+
   render() {
     const {player, round, stage} = this.props;
 
@@ -59,7 +78,11 @@ export default class TaskResponse extends React.Component {
       return this.renderSubmitted();
     }
 
-    if (stage.name == 'prepare') {
+    if (stage.name == 'prepare_first') {
+      return (<div className="task-response">
+        <button onClick={this.handleSubmit}>Start</button>
+      </div>);
+    } else if (stage.name == 'prepare') {
       return (<div className="task-response">
         <button onClick={this.handleSubmit}>Start</button>
       </div>);
@@ -73,7 +96,7 @@ export default class TaskResponse extends React.Component {
     } else if (stage.name == 'add') {
       return (<div className="task-response">
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput()}
+          {this.renderAdd()}
           <button type="submit">Submit</button>
         </form>
       </div>);

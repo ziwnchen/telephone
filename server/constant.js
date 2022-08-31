@@ -15,7 +15,7 @@ export const InitialPrompt = {
   "TASK2":{
     "A": "As a matter of fact, not all was well, given that they had both been equally rejected by their group of friends.",
     "B": "Because the three of them had stayed up all night to finish the project, they were exhausted during the meeting the next day.",
-    "C": "On an exceptionally hot evening early in July, a young man came out of the attic in which he lodged and walked slowly, as though in hesitation, towards the bridge.",
+    "C": "On an exceptionally hot evening early in July, a young man came out of the cabin in which he lodged and walked slowly, as though in hesitation, towards the bridge.",
     "D": "Given the circumstances, they were not about to give up without a fight.",
     "E": "The wind swayed the trees softly as clouds slowly drifted across the horizon.",
     "F": "It was her first day away from home, where she had spent the first 27 years of her life.",

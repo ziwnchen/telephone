@@ -49,7 +49,7 @@ Empirica.round(Round);
 Empirica.exitSteps((game, player) => {
   // if (player.exitStatus !== "finished") {
   //   return [Sorry];}
-  const steps = [ExitTransition, ExitSurvey, ExitSurvey2, Thanks];
+  const steps = [ExitTransition, ExitSurvey, ExitSurvey2];
   return steps;
 });
 

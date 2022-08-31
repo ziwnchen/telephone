@@ -36,10 +36,10 @@ export default class ExitSurvey extends React.Component {
     return (
       <Centered>
         <div className="exit-survey">
-          <h1> Exit Survey (Part 1) </h1>
+          <h1> Concluding Survey (Part 1) </h1>
           <p>
             Please answer the following questions. You do not have to provide
-            any information you feel uncomfortable with.
+            any information you feel uncomfortable with. All of this information will be anonymized and will not be linked to you in any way, as we will be using randomized identification numbers to store the data.
           </p>
           <form onSubmit={this.handleSubmit}>
             <div className="form-line">
@@ -59,20 +59,48 @@ export default class ExitSurvey extends React.Component {
                   />
                 </div>
               </div>
+
               <div class="survey_question">
-                <label htmlFor="gender">Gender</label>
+                <label>Gender</label>
                 <div>
-                  <input
-                    id="gender"
-                    type="text"
-                    dir="auto"
+                  <Radio
+                    selected={gender}
                     name="gender"
-                    value={gender}
+                    value="male"
+                    label="Male"
                     onChange={this.handleChange}
-                    autoComplete="off"
+                  />
+                  <Radio
+                    selected={gender}
+                    name="gender"
+                    value="female"
+                    label="Female"
+                    onChange={this.handleChange}
+                  />
+                  <Radio
+                    selected={gender}
+                    name="gender"
+                    value="transgender"
+                    label="Transgender"
+                    onChange={this.handleChange}
+                  />
+                  <Radio
+                    selected={gender}
+                    name="gender"
+                    value="non-binary"
+                    label="Non-binary/non-conforming"
+                    onChange={this.handleChange}
+                  />
+                  <Radio
+                    selected={gender}
+                    name="gender"
+                    value="NA"
+                    label="Prefer not to say"
+                    onChange={this.handleChange}
                   />
                 </div>
               </div>
+
             <div class="survey_question">
               <label>What is your highest education qualification?</label>
               <div>
@@ -103,6 +131,7 @@ export default class ExitSurvey extends React.Component {
             <div class="survey_question">
               <label>What state do you live in?</label>
                 <select name="location" value={this.state.value} onChange={this.handleChange}>
+                <option value="none">Select an option</option>
               	<option value="AL">Alabama</option>
               	<option value="AK">Alaska</option>
               	<option value="AZ">Arizona</option>

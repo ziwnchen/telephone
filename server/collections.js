@@ -74,7 +74,7 @@ if (count == 0) {
   Prompts.insert({
     type: 'C',
     gen: 0,
-    text: 'On an exceptionally hot evening early in July, a young man came out of the attic in which he lodged and walked slowly, as though in hesitation, towards the bridge.',
+    text: 'On an exceptionally hot evening early in July, a young man came out of the cabin in which he lodged and walked slowly, as though in hesitation, towards the bridge.',
     taskType: 'TASK2'
   });
   Prompts.insert({
