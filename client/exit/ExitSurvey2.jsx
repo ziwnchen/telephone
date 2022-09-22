@@ -4,7 +4,7 @@ import Likert from 'react-likert-scale';
 
 export default class ExitSurvey2 extends React.Component {
   static stepName = "ExitSurvey2";
-  state = { first_difficulty: 0, first_certain: "", first_meaning:"", second_close: "", second_novelty: "", feedback: ""};
+  state = { first_difficulty: 0, first_certain: 0, first_meaning:0, second_close: 0, second_novelty: 0, feedback: ""};
 
   handleChange = event => {
     const el = event.currentTarget;
@@ -13,10 +13,16 @@ export default class ExitSurvey2 extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
-    const { player } = this.props;
-    const redirect_path = `http://surveys.ovationworldpanel.com/survey/Complete?refid1=${player.id}&pid1=RCECFN94`
-    window.location.href=redirect_path;
+
+    if (this.state.first_difficulty == 0 || this.state.first_certain == 0 || this.state.first_meaning == 0 || this.state.second_close == 0 || this.state.second_novelty == 0) {
+      alert("Please answer all rating questions.");
+    } else {
+      this.props.onSubmit(this.state);
+      const { player } = this.props;
+      const redirect_path = `http://surveys.ovationworldpanel.com/survey/Complete?refid1=${player.id}&pid1=RCECFN94`;
+      window.location.href=redirect_path;
+    }
+
   };
 
   render() {
@@ -115,15 +121,15 @@ const likertOptions_second_novelty = {
           <form onSubmit={this.handleSubmit}>
 
             <Likert {...likertOptions_first_difficult}
-              name="first_difficulty"/>
+              name="first_difficulty" required/>
             <Likert {...likertOptions_first_certain}
-              name="first_certain"/>
+              name="first_certain" required/>
             <Likert {...likertOptions_first_meaning}
-              name="first_meaning"/>
+              name="first_meaning" required/>
             <Likert {...likertOptions_second_close}
-              name="second_close"/>
+              name="second_close" required/>
             <Likert {...likertOptions_second_novelty}
-              name="second_novelty"/>
+              name="second_novelty" required/>
 
               <div>
                 <p>Are there any thoughts about the study that you would like to share with us?</p>

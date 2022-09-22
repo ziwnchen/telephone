@@ -92,7 +92,7 @@ Empirica.gameInit((game) => {
     });
   });
 
-  _.times(2, (i) => {
+  _.times(9, (i) => {
     const round = game.addRound();
     const taskType = "TASK2"
     const promptType = String.fromCharCode(i + 65);
