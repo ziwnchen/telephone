@@ -12,9 +12,10 @@ export default class Quiz extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
+    const { player } = this.props;
     if (this.state.task_num !== "2" || this.state.task_type !== "recall") {
-      alert("Incorrect! Read the instructions, and please try again.");
+      // alert("Incorrect! Read the instructions, and please try again.");
+      player.exit("failedQuestion");
     } else {
       this.props.onNext();
     }
@@ -68,9 +69,6 @@ export default class Quiz extends React.Component {
 
           <br/>
             <p>
-              <button type="button" onClick={onPrev} disabled={!hasPrev}>
-                Back to instructions
-              </button>
               <button type="submit">Submit</button>
             </p>
           </form>
