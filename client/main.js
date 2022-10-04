@@ -4,6 +4,7 @@ import ExitTransition from "./exit/ExitTransition";
 import ExitSurvey from "./exit/ExitSurvey";
 import ExitSurvey2 from "./exit/ExitSurvey2";
 import Thanks from "./exit/Thanks";
+import Sorry from "./exit/Sorry";
 import About from "./game/About";
 import Round from "./game/Round";
 import Consent from "./intro/Consent";
@@ -46,12 +47,17 @@ Empirica.round(Round);
 // user if they come back to the website.
 // If you don't return anything, or do not define this function, a default
 // exit screen will be shown.
+
 Empirica.exitSteps((game, player) => {
-  // if (player.exitStatus !== "finished") {
-  //   return [Sorry];}
-  const steps = [ExitTransition, ExitSurvey, ExitSurvey2];
-  return steps;
+  if (player.exitStatus !== "finished"){
+    // const redirect_path = `http://surveys.ovationworldpanel.com/survey/Screened?refid1=${player.id}&pid1=RCECFN94`;
+    // window.location.href=redirect_path;
+    return [Sorry];
+  } else {
+    return [ExitTransition, ExitSurvey, ExitSurvey2];
+  }
 });
+
 
 // Start the app render tree.
 // NB: This must be called after any other Empirica calls (Empirica.round(),
