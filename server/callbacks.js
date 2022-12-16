@@ -37,8 +37,9 @@ Empirica.onStageEnd((game, round, stage) => {
 // It receives the same options as onGameEnd, and the round that just ended.
 Empirica.onRoundEnd((game, round) => {
 
-   const lineType = game.treatment.lineNum;
+  const lineType = game.treatment.lineNum;
   const genNum = game.treatment.genNum;
+  const gameType = game.treatment.gamePart;
   const promptType = round.get('promptType');
   const taskType = round.get('taskType');
   game.players.forEach(player => {
@@ -51,6 +52,7 @@ Empirica.onRoundEnd((game, round) => {
       gen: genNum,
       linetype: lineType,
       taskType: taskType,
+      gamePart: gameType,
       text: text_value,
       Submit_time: finish_time
     });

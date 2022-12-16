@@ -88,7 +88,7 @@ Empirica.gameInit((game) => {
     round.addStage({
       name: "response",
       displayName: "Response",
-      durationInSeconds: 30
+      durationInSeconds: 600
     });
   });
 
@@ -129,7 +129,7 @@ Empirica.gameInit((game) => {
     round.addStage({
       name: "add",
       displayName: "AddSentence",
-      durationInSeconds: 30,
+      durationInSeconds: 600,
     });
   });
 
