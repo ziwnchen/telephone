@@ -15,7 +15,7 @@ export default class Quiz extends React.Component {
     const { player } = this.props;
     if (this.state.task_num !== "2" || this.state.task_type !== "recall") {
       // alert("Incorrect! Read the instructions, and please try again.");
-      player.exit("failedQuestion");
+      player.exit("failedQuiz");
     } else {
       this.props.onNext();
     }
@@ -37,7 +37,7 @@ export default class Quiz extends React.Component {
                 dir="auto"
                 id="task_num"
                 name="task_num"
-                placeholder="e.g. 3"
+                placeholder="e.g. 5"
                 value={task_num}
                 onChange={this.handleChange}
                 autoComplete="off"

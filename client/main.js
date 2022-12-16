@@ -50,8 +50,8 @@ Empirica.round(Round);
 
 Empirica.exitSteps((game, player) => {
   if (player.exitStatus !== "finished"){
-    // const redirect_path = `http://surveys.ovationworldpanel.com/survey/Screened?refid1=${player.id}&pid1=RCECFN94`;
-    // window.location.href=redirect_path;
+    const redirect_path = `http://surveys.ovationworldpanel.com/survey/Screened?refid1=${player.id}&pid1=RCECFN94`;
+    window.location.href=redirect_path;
     return [Sorry];
   } else {
     return [ExitTransition, ExitSurvey, ExitSurvey2];

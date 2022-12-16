@@ -28,14 +28,14 @@ export default class Sorry extends React.Component {
         msg =
           "You decided to stop waiting, we are sorry it was too long a wait.";
         break;
+      case "custom":
+        msg = "Unfortunately, your response does not meet the criteria for this test.";
+        break;
       default:
         msg = "Unfortunately the Game was cancelled...";
         break;
     }
-    if (player.exitReason === "failedQuestion") {
-      msg =
-        "Unfortunately you did not meet the conditions required to play the game.";
-    }
+
     return (
       <Centered>
         <div className="score">

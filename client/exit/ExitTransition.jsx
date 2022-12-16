@@ -24,7 +24,7 @@ export default class ExitTransition extends React.Component {
           </p>
           <p>
           We now need to collect some information about you and your experience with this study.
-          This survey is a required part of the study and needs to be completed to receive your remuneration.
+          <b> This survey is a required part of the study and needs to be completed to receive your remuneration. </b>
           We would appreciate if you could share with us some more information about you and your task experiences.
           </p>
           <form onSubmit={this.handleSubmit}>

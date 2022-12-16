@@ -121,15 +121,15 @@ const likertOptions_second_novelty = {
           <form onSubmit={this.handleSubmit}>
 
             <Likert {...likertOptions_first_difficult}
-              name="first_difficulty" required/>
+              name="first_difficulty"/>
             <Likert {...likertOptions_first_certain}
-              name="first_certain" required/>
+              name="first_certain"/>
             <Likert {...likertOptions_first_meaning}
-              name="first_meaning" required/>
+              name="first_meaning"/>
             <Likert {...likertOptions_second_close}
-              name="second_close" required/>
+              name="second_close"/>
             <Likert {...likertOptions_second_novelty}
-              name="second_novelty" required/>
+              name="second_novelty"/>
 
               <div>
                 <p>Are there any thoughts about the study that you would like to share with us?</p>

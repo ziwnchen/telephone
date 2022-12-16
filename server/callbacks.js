@@ -16,18 +16,34 @@ Empirica.onStageStart((game, round, stage) => {});
 
 // onStageEnd is triggered after each stage.
 // It receives the same options as onRoundEnd, and the stage that just ended.
-Empirica.onStageEnd((game, round, stage) => {});
+Empirica.onStageEnd((game, round, stage) => {
+  let stageName = stage.name;
+  if (stageName == "response" || stageName == "add"){
+    game.players.forEach(player => {
+      let text_value = player.round.get("value");
+      if (text_value == undefined){
+        player.exit("NoResponse");
+      } else {
+        let text_length = text_value.length;
+        if (text_length <= 10){
+          player.exit("AnswerTooShort");
+        }
+      }
+    });
+  }
+});
 
 // onRoundEnd is triggered after each round.
 // It receives the same options as onGameEnd, and the round that just ended.
 Empirica.onRoundEnd((game, round) => {
-  const lineType = game.treatment.lineNum;
+
+   const lineType = game.treatment.lineNum;
   const genNum = game.treatment.genNum;
   const promptType = round.get('promptType');
   const taskType = round.get('taskType');
   game.players.forEach(player => {
     const text_value = player.round.get("value");
-    const player_id =player.get("_id");
+    const player_id =player.id;
     const finish_time = new Date().toString()
     Prompts.insert({
       player: player_id,
